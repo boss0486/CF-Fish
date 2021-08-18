@@ -1,0 +1,76 @@
+
+skeleton.png
+size: 1328, 257
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+_0000_greek-gods-poseidon_1-copy-2
+  rotate: false
+  xy: 999, 18
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: -1
+_0001_Layer-5
+  rotate: true
+  xy: 801, 81
+  size: 176, 196
+  orig: 176, 196
+  offset: 0, 0
+  index: -1
+_0002_Layer-3-copy
+  rotate: false
+  xy: 1129, 19
+  size: 56, 95
+  orig: 56, 95
+  offset: 0, 0
+  index: -1
+_0003_Layer-8
+  rotate: true
+  xy: 885, 27
+  size: 52, 67
+  orig: 52, 67
+  offset: 0, 0
+  index: -1
+_0004_Layer-10
+  rotate: false
+  xy: 1187, 31
+  size: 114, 82
+  orig: 114, 82
+  offset: 0, 0
+  index: -1
+_0005_Layer-9
+  rotate: true
+  xy: 999, 116
+  size: 141, 195
+  orig: 141, 202
+  offset: 0, 0
+  index: -1
+_0006_Layer-6
+  rotate: true
+  xy: 1196, 115
+  size: 142, 130
+  orig: 142, 130
+  offset: 0, 0
+  index: -1
+_0007_Layer-7
+  rotate: true
+  xy: 801, 4
+  size: 75, 82
+  orig: 75, 82
+  offset: 0, 0
+  index: -1
+_0008_golden-trident-isolated-golden-trident-isolated-white-background-d-render-123293378
+  rotate: true
+  xy: 2, 7
+  size: 250, 334
+  orig: 281, 336
+  offset: 30, 1
+  index: -1
+_0009_mermaid-tail-merman-finfolk-legend-mermaid-b806251d40d3a169f0ec934fe984582c
+  rotate: true
+  xy: 338, 8
+  size: 249, 461
+  orig: 368, 461
+  offset: 64, 0
+  index: -1

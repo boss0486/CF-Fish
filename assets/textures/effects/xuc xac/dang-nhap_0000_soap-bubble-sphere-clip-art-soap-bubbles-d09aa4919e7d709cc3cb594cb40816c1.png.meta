@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "7bf66670-d9de-4d0f-87e1-d8d3c6c9571e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 227,
+  "height": 227,
+  "platformSettings": {},
+  "subMetas": {
+    "dang-nhap_0000_soap-bubble-sphere-clip-art-soap-bubbles-d09aa4919e7d709cc3cb594cb40816c1": {
+      "ver": "1.0.4",
+      "uuid": "6879598f-fc3a-4bbb-9ed2-68f7369763ca",
+      "rawTextureUuid": "7bf66670-d9de-4d0f-87e1-d8d3c6c9571e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 227,
+      "height": 227,
+      "rawWidth": 227,
+      "rawHeight": 227,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

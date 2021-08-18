@@ -1,0 +1,18 @@
+{
+  "name": "sfs2x-api",
+  "version": "1.7.18",
+  "main": "sfs2x-api.js",
+  "types": "sfs2x-api.d.ts",
+  "description": "Official JavaScript client API for SmartFoxServer 2X, the leading SDK to create large scale multiplayer games and MMOs",
+  "keywords": ["smartfoxserver","smartfox","sfs2x","html5","multiplayer","gamedev","api","realtime","turn-based","mmo"],
+  "homepage": "http://www.smartfoxserver.com",
+  "bugs": {
+	  "url": "http://www.smartfoxserver.com/forums/viewforum.php?f=33",
+	  "email": "support@smartfoxserver.com"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "SmartFoxServer Team",
+    "email": "info@smartfoxserver.com"
+  }
+}

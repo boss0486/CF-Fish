@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 2006, 2006
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+_0000_Layer-1-copy
+  rotate: false
+  xy: 2, 1286
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+_0001_Layer-0-copy-6
+  rotate: true
+  xy: 1284, 726
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+_0002_Layer-0-copy-5
+  rotate: true
+  xy: 1284, 726
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+_0003_Layer-0-copy-4
+  rotate: true
+  xy: 2, 4
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+_0004_Layer-0-copy-3
+  rotate: false
+  xy: 724, 4
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1

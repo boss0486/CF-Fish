@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "net_7",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 40,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "c8e91066-53d6-486c-92a3-71db13840cdf"
+            }
+          }
+        ]
+      }
+    },
+    "props": {
+      "scaleX": [
+        {
+          "frame": 0,
+          "value": 0,
+          "curve": "quintOut"
+        },
+        {
+          "frame": 0.375,
+          "value": 1.2
+        },
+        {
+          "frame": 0.5,
+          "value": 0
+        }
+      ],
+      "scaleY": [
+        {
+          "frame": 0,
+          "value": 0,
+          "curve": "quintOut"
+        },
+        {
+          "frame": 0.375,
+          "value": 1.2
+        },
+        {
+          "frame": 0.5,
+          "value": 0
+        }
+      ]
+    }
+  },
+  "events": [
+    {
+      "frame": 0.5,
+      "func": "despawnNet",
+      "params": []
+    }
+  ]
+}

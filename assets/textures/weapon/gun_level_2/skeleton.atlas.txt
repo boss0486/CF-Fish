@@ -1,0 +1,48 @@
+
+skeleton.png
+size: 280,575
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Untitled-1
+  rotate: false
+  xy: 196, 181
+  size: 75, 156
+  orig: 75, 156
+  offset: 0, 0
+  index: -1
+fighter_0000_Layer-80-copy
+  rotate: true
+  xy: 2, 339
+  size: 234, 276
+  orig: 234, 276
+  offset: 0, 0
+  index: -1
+fighter_0002_Layer-77-copy
+  rotate: false
+  xy: 196, 27
+  size: 69, 152
+  orig: 70, 152
+  offset: 0, 0
+  index: -1
+fighter_0003_Layer-78-copy
+  rotate: true
+  xy: 2, 206
+  size: 131, 192
+  orig: 131, 192
+  offset: 0, 0
+  index: -1
+fighter_0005_Layer-77
+  rotate: true
+  xy: 2, 2
+  size: 69, 152
+  orig: 70, 152
+  offset: 1, 0
+  index: -1
+fighter_0006_Layer-78
+  rotate: true
+  xy: 2, 73
+  size: 131, 192
+  orig: 131, 192
+  offset: 0, 0
+  index: -1

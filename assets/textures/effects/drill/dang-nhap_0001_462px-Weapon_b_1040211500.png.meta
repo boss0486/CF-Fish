@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "fe1edc52-6f5a-40dc-b27a-afbed4f3fd3c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 152,
+  "height": 305,
+  "platformSettings": {},
+  "subMetas": {
+    "dang-nhap_0001_462px-Weapon_b_1040211500": {
+      "ver": "1.0.4",
+      "uuid": "9a41cca0-cf4f-4a98-863a-ec2513ab5f26",
+      "rawTextureUuid": "fe1edc52-6f5a-40dc-b27a-afbed4f3fd3c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 152,
+      "height": 305,
+      "rawWidth": 152,
+      "rawHeight": 305,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

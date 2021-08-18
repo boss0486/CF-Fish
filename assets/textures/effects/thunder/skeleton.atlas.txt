@@ -1,0 +1,97 @@
+
+skeleton.png
+size: 827,291
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/_0000_energy_12_00008
+  rotate: true
+  xy: 475, 46
+  size: 59, 44
+  orig: 189, 180
+  offset: 52, 62
+  index: -1
+New folder/_0001_energy_12_00007
+  rotate: false
+  xy: 144, 7
+  size: 84, 72
+  orig: 189, 180
+  offset: 34, 56
+  index: -1
+New folder/_0002_energy_12_00006
+  rotate: false
+  xy: 230, 3
+  size: 86, 99
+  orig: 189, 180
+  offset: 33, 55
+  index: -1
+New folder/_0003_energy_12_00005
+  rotate: true
+  xy: 525, 6
+  size: 107, 117
+  orig: 189, 180
+  offset: 25, 44
+  index: -1
+New folder/_0004_energy_12_00004
+  rotate: true
+  xy: 688, 2
+  size: 149, 134
+  orig: 189, 180
+  offset: 13, 28
+  index: -1
+New folder/_0005_energy_12_00003
+  rotate: true
+  xy: 525, 115
+  size: 174, 161
+  orig: 189, 180
+  offset: 7, 5
+  index: -1
+New folder/_0006_energy_12_00002
+  rotate: true
+  xy: 204, 104
+  size: 185, 177
+  orig: 189, 180
+  offset: 3, 1
+  index: -1
+New folder/_0007_energy_12_00001
+  rotate: true
+  xy: 383, 107
+  size: 182, 140
+  orig: 189, 180
+  offset: 1, 13
+  index: -1
+New folder/_0008_energy_12_00000
+  rotate: false
+  xy: 318, 6
+  size: 155, 96
+  orig: 189, 180
+  offset: 14, 45
+  index: -1
+dang-nhap_0000_-copy-2
+  rotate: false
+  xy: 688, 153
+  size: 137, 136
+  orig: 137, 137
+  offset: 0, 1
+  index: -1
+dang-nhap_0001_Layer-232-copy
+  rotate: false
+  xy: 2, 2
+  size: 69, 77
+  orig: 70, 77
+  offset: 1, 0
+  index: -1
+dang-nhap_0002_Layer-232
+  rotate: false
+  xy: 73, 3
+  size: 69, 76
+  orig: 69, 77
+  offset: 0, 1
+  index: -1
+dang-nhap_0003_Layer-231
+  rotate: true
+  xy: 2, 81
+  size: 208, 200
+  orig: 218, 210
+  offset: 5, 5
+  index: -1

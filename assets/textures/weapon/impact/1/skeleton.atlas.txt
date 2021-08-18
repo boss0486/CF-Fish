@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 267, 286
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Untitled-1
+  rotate: false
+  xy: 152, 61
+  size: 110, 110
+  orig: 110, 110
+  offset: 0, 0
+  index: -1
+_0000_Ellipse-1
+  rotate: false
+  xy: 128, 4
+  size: 55, 55
+  orig: 172, 167
+  offset: 60, 59
+  index: -1
+_0001_unnamed
+  rotate: false
+  xy: 2, 138
+  size: 148, 148
+  orig: 172, 167
+  offset: 13, 12
+  index: -1
+_0002_light-luminous-efficacy-halo-lens-flare-hd-lens-flares-675731a66991c5ba48eb0a037c54d374(2)
+  rotate: false
+  xy: 152, 173
+  size: 113, 113
+  orig: 172, 167
+  offset: 31, 30
+  index: -1
+_0003_light-symmetry-triangle-pattern-decorative-light-effect-vector-material-f2da3af50e92bb34d0406fc1467221c9
+  rotate: false
+  xy: 2, 29
+  size: 124, 107
+  orig: 172, 167
+  offset: 22, 33
+  index: -1

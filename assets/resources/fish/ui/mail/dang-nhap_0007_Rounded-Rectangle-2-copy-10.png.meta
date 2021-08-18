@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "16030e9a-3d02-4c4e-8839-179c5527be66",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 290,
+  "height": 48,
+  "platformSettings": {},
+  "subMetas": {
+    "dang-nhap_0007_Rounded-Rectangle-2-copy-10": {
+      "ver": "1.0.4",
+      "uuid": "2ffc9148-0603-4f29-a39b-3d52f80f8a02",
+      "rawTextureUuid": "16030e9a-3d02-4c4e-8839-179c5527be66",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 290,
+      "height": 48,
+      "rawWidth": 290,
+      "rawHeight": 48,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

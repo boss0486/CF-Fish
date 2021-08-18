@@ -1,0 +1,55 @@
+
+skeleton.png
+size: 868, 595
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+dang_nhap_0000s_0000_Group_16_copy_8
+  rotate: false
+  xy: 336, 309
+  size: 286, 286
+  orig: 352, 352
+  offset: 33, 33
+  index: -1
+dang_nhap_0000s_0003_Group_16_copy_5
+  rotate: false
+  xy: 336, 309
+  size: 286, 286
+  orig: 352, 352
+  offset: 33, 33
+  index: -1
+dang_nhap_0000s_0002_Group_16_copy_6
+  rotate: true
+  xy: 2, 264
+  size: 331, 332
+  orig: 352, 352
+  offset: 10, 10
+  index: -1
+dang_nhap_0000s_0004_Group_16_copy_4
+  rotate: false
+  xy: 336, 25
+  size: 282, 282
+  orig: 352, 352
+  offset: 35, 35
+  index: -1
+dang_nhap_0000s_0005_Group_16_copy_3
+  rotate: false
+  xy: 2, 4
+  size: 258, 258
+  orig: 352, 352
+  offset: 47, 47
+  index: -1
+dang_nhap_0000s_0006_Group_16_copy_2
+  rotate: false
+  xy: 620, 61
+  size: 246, 246
+  orig: 352, 352
+  offset: 53, 53
+  index: -1
+dang_nhap_0000s_0007_Group_16_copy
+  rotate: false
+  xy: 624, 361
+  size: 234, 234
+  orig: 352, 352
+  offset: 59, 59
+  index: -1

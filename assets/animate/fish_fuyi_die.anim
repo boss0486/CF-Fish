@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_fuyi_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "a2a6f76f-1284-4050-b80e-ebb9550a8ec6"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "20e63f66-7a7b-47c5-8100-e427bc014106"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "253489f2-0e36-4630-bc27-0b94f704773d"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "5d835797-716c-47ed-ae65-d11740e269b4"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

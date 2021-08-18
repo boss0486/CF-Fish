@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_shuimu_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "9b3d37a3-b01f-4ca3-8294-68d87df30c47"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "85c7149b-7ed5-46bb-a6ac-c60e78bc94af"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "31a41fee-8917-44e1-8f10-0581ca4885f9"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "98b70963-5b60-42aa-bd62-06f694be68dc"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

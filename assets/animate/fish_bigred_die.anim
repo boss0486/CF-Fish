@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_bigred_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "eafd3639-aedd-4fd4-909d-37a4c0a85b96"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "16b19652-dfc7-4335-b22c-2287d4224a16"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "883e6df0-0a36-4c16-a0bc-aa0ccb148173"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "2fbfb64a-1376-4314-993c-f8670c46ef61"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

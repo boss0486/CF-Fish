@@ -1,0 +1,83 @@
+
+skeleton.png
+size: 422,79
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_0000_Group-18
+  rotate: false
+  xy: 185, 43
+  size: 99, 34
+  orig: 99, 34
+  offset: 0, 0
+  index: -1
+_0001_Layer-118
+  rotate: true
+  xy: 360, 59
+  size: 18, 55
+  orig: 18, 55
+  offset: 0, 0
+  index: -1
+_0002_Layer-107
+  rotate: false
+  xy: 396, 15
+  size: 24, 42
+  orig: 26, 42
+  offset: 2, 0
+  index: -1
+_0003_Layer-117
+  rotate: true
+  xy: 257, 4
+  size: 37, 55
+  orig: 37, 55
+  offset: 0, 0
+  index: -1
+_0004_Layer-116
+  rotate: true
+  xy: 314, 2
+  size: 55, 54
+  orig: 55, 54
+  offset: 0, 0
+  index: -1
+_0005_Layer-115
+  rotate: true
+  xy: 126, 12
+  size: 65, 57
+  orig: 65, 57
+  offset: 0, 0
+  index: -1
+_0006_Layer-118
+  rotate: true
+  xy: 286, 59
+  size: 18, 72
+  orig: 18, 72
+  offset: 0, 0
+  index: -1
+_0007_Layer-107
+  rotate: false
+  xy: 370, 3
+  size: 24, 54
+  orig: 26, 54
+  offset: 2, 0
+  index: -1
+_0008_Layer-117
+  rotate: true
+  xy: 185, 4
+  size: 37, 70
+  orig: 55, 70
+  offset: 9, 0
+  index: -1
+_0009_Layer-116
+  rotate: false
+  xy: 69, 6
+  size: 55, 71
+  orig: 65, 73
+  offset: 5, 1
+  index: -1
+_0010_Layer-115
+  rotate: false
+  xy: 2, 4
+  size: 65, 73
+  orig: 65, 73
+  offset: 0, 0
+  index: -1

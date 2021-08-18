@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_gui_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "05be247a-fcf3-4081-a0c4-f75410c8923a"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "3aa8d94b-ef21-4814-86af-427c64eb4f35"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "49190bea-143f-4ca8-8c8d-b2065e62076e"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "e3b6a63e-7c6e-46aa-a665-fc7004bec467"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

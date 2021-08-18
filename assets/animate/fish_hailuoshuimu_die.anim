@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_hailuoshuimu_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "9fb9e239-ddc9-4220-8682-d7ed7a521f6f"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "d09fb81a-a804-48fb-a50a-15da96e047ed"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "6df3f9bf-a253-4eca-ac45-d026d627c7fb"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "0e72b83c-e5d7-4313-a38b-c650e23f6779"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

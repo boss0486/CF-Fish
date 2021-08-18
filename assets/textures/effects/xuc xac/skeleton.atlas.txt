@@ -1,0 +1,41 @@
+
+skeleton.png
+size: 397,231
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dang-nhap_0000_soap-bubble-sphere-clip-art-soap-bubbles-d09aa4919e7d709cc3cb594cb40816c1
+  rotate: false
+  xy: 2, 2
+  size: 227, 227
+  orig: 227, 227
+  offset: 0, 0
+  index: -1
+dang-nhap_0001_Layer-222
+  rotate: true
+  xy: 329, 150
+  size: 79, 66
+  orig: 79, 66
+  offset: 0, 0
+  index: -1
+dang-nhap_0002_Layer-223
+  rotate: false
+  xy: 231, 7
+  size: 68, 68
+  orig: 68, 68
+  offset: 0, 0
+  index: -1
+dang-nhap_0003_Layer-221
+  rotate: false
+  xy: 301, 8
+  size: 74, 67
+  orig: 74, 67
+  offset: 0, 0
+  index: -1
+dang-nhap_0004_Layer-224
+  rotate: true
+  xy: 231, 77
+  size: 152, 96
+  orig: 152, 96
+  offset: 0, 0
+  index: -1

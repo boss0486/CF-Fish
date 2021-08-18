@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_shayu_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "77c3c087-b343-4965-a12f-468c844a4564"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "a5b08e58-ff4f-4727-9632-2389b6faa2f2"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "67dadec6-b59a-4c8f-b65b-96ed2238ab58"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "556016f5-8683-43d9-b0e1-07a9c64ec1a2"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

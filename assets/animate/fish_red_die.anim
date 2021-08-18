@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fish_red_die",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.8,
+  "sample": 5,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "5f7dbe31-b093-44e5-8486-b6a00916b5ad"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "514e1317-1624-4363-80f3-58ce75f68f57"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "8575a6c3-bbba-4b91-b897-dc7d1d13a431"
+            }
+          },
+          {
+            "frame": 0.6,
+            "value": {
+              "__uuid__": "ce004143-b355-497c-a04d-2ed2cd27f117"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

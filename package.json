@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "device-uuid": "^1.0.4",
+    "director": "^1.2.8",
+    "fetch": "^1.1.0",
+    "file-utils": "^0.2.2",
+    "sfs2x-api": "^1.7.18"
+  }
+}

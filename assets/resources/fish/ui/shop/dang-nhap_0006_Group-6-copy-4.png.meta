@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "3c4d632e-cd69-4163-afe7-9f73a7f43f17",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 177,
+  "height": 84,
+  "platformSettings": {},
+  "subMetas": {
+    "dang-nhap_0006_Group-6-copy-4": {
+      "ver": "1.0.4",
+      "uuid": "4445399c-b44f-4845-be50-0352640b01a7",
+      "rawTextureUuid": "3c4d632e-cd69-4163-afe7-9f73a7f43f17",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 177,
+      "height": 84,
+      "rawWidth": 177,
+      "rawHeight": 84,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 351,235
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dang-nhap_0000_soap-bubble-sphere-clip-art-soap-bubbles-d09aa4919e7d709cc3cb594cb40816c1
+  rotate: false
+  xy: 2, 2
+  size: 231, 231
+  orig: 231, 231
+  offset: 0, 0
+  index: -1
+dang-nhap_0001_cassino-blackjack-casino-playing-card-poker-falling-poker-cards-23c5cd1a5a0dfe6070f9ddaefe627c92
+  rotate: false
+  xy: 235, 55
+  size: 114, 178
+  orig: 114, 178
+  offset: 0, 0
+  index: -1

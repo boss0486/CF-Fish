@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 304,175
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dang-nhap_0000_Group-48
+  rotate: true
+  xy: 2, 2
+  size: 171, 174
+  orig: 173, 176
+  offset: 1, 0
+  index: -1
+dang-nhap_0001_Group-49
+  rotate: true
+  xy: 178, 39
+  size: 134, 124
+  orig: 141, 133
+  offset: 2, 5
+  index: -1

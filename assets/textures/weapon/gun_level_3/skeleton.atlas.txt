@@ -1,0 +1,90 @@
+
+skeleton.png
+size: 464,332
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dang-nhap_0000_Layer-23-copy-3
+  rotate: false
+  xy: 373, 234
+  size: 70, 96
+  orig: 70, 102
+  offset: 0, 0
+  index: -1
+dang-nhap_0001_Layer-23-copy-2
+  rotate: false
+  xy: 100, 5
+  size: 65, 89
+  orig: 65, 99
+  offset: 0, 4
+  index: -1
+dang-nhap_0002_Layer-23
+  rotate: true
+  xy: 2, 24
+  size: 70, 96
+  orig: 70, 102
+  offset: 0, 0
+  index: -1
+dang-nhap_0003_Layer-23-copy
+  rotate: true
+  xy: 373, 167
+  size: 65, 89
+  orig: 65, 99
+  offset: 0, 4
+  index: -1
+fighter_0000_Layer-71-copy
+  rotate: true
+  xy: 2, 179
+  size: 151, 286
+  orig: 151, 286
+  offset: 0, 0
+  index: -1
+fighter_0001_Layer-70-copy
+  rotate: true
+  xy: 244, 109
+  size: 45, 142
+  orig: 45, 142
+  offset: 0, 0
+  index: -1
+fighter_0002_Layer-70
+  rotate: true
+  xy: 244, 62
+  size: 45, 142
+  orig: 45, 142
+  offset: 0, 0
+  index: -1
+fighter_0003_Layer-69-copy
+  rotate: false
+  xy: 388, 43
+  size: 58, 122
+  orig: 58, 122
+  offset: 0, 0
+  index: -1
+fighter_0004_Layer-68-copy
+  rotate: false
+  xy: 290, 156
+  size: 81, 174
+  orig: 81, 174
+  offset: 0, 0
+  index: -1
+fighter_0005_Layer-68
+  rotate: true
+  xy: 2, 96
+  size: 81, 174
+  orig: 81, 174
+  offset: 0, 0
+  index: -1
+fighter_0006_Layer-69
+  rotate: true
+  xy: 244, 2
+  size: 58, 122
+  orig: 58, 122
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 178, 24
+  size: 64, 153
+  orig: 64, 153
+  offset: 0, 0
+  index: -1
