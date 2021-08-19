@@ -37,19 +37,19 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 306,
-      "height": 404.39
+      "height": 404
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 0.22600089022972875
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        640,
-        360,
+        0,
+        0,
         0,
         0,
         0,
@@ -88,7 +88,7 @@
     ],
     "paused": false,
     "defaultSkin": "default",
-    "defaultAnimation": "XUATHIEN",
+    "defaultAnimation": "idle",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -99,7 +99,7 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "XUATHIEN",
+    "_animationName": "idle",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,

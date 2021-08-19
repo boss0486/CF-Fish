@@ -61,8 +61,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        0.9,
+        0.9,
         1
       ]
     },
@@ -95,7 +95,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "ef6444cd-0ab8-47af-bb70-4ba193519091"
+      "__uuid__": "0d27d413-66ea-456f-9701-d7809b0d41b3"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -127,7 +127,7 @@
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 40,
+      "width": 45,
       "height": 50
     },
     "_id": ""
@@ -142,10 +142,10 @@
     "_enabled": true,
     "bullets": [],
     "angle": 1,
-    "bulletType": "",
+    "bulletType": "b-gold-100",
     "player": null,
     "attack": 4,
-    "speed": 0,
+    "speed": 600,
     "speedBonus": 1,
     "bulletLevel": 1,
     "playerLocation": 0,
@@ -158,7 +158,6 @@
     "speedX": 0,
     "speedY": 0,
     "callBack": null,
-    "bongbongWrap": null,
     "_id": ""
   },
   {
@@ -167,7 +166,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "29c1db7d-5f68-4f99-a163-e995bf27ba8a"
+      "__uuid__": "e5df1e9e-2440-4064-b245-499db85289b3"
     },
     "fileId": "",
     "sync": false

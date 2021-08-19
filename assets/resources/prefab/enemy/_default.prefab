@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bachtuocvang",
+    "_name": "_default",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -352,21 +352,17 @@
     },
     "_enabled": true,
     "id": "",
-    "anim": null,
     "hp": 10,
     "gold": 2,
     "speed": 10,
     "speedBonus": 0,
-    "fishState": 10,
     "lastPosition": {
       "__type__": "cc.Vec2",
       "x": 0,
       "y": 0
     },
-    "fishType": null,
     "game": null,
     "bezierArray": null,
-    "totalDie": 1,
     "cntBezier": 0,
     "lblName": {
       "__id__": 3
@@ -375,6 +371,7 @@
       "__id__": 5
     },
     "fooTween": false,
+    "nextArray": null,
     "_id": ""
   },
   {

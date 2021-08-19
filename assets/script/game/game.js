@@ -37,7 +37,8 @@ cc.Class({
         moveSprite: cc.Sprite,
         trackLayout: cc.Layout,
         // 
-        tagetLocation: cc.Node
+        tagetLocation: cc.Node,
+        trackNode: cc.Node
     },
     setScreen: function() {
         //cc.view.resizeWithBrowserSize(true);
@@ -115,37 +116,37 @@ cc.Class({
     // init game
     playerLoad: function(model) {
         var users = model.users;
-        // users = [{
-        //     ticket: 51,
-        //     freezeSkill: 3356,
-        //     bulletlevel: 1,
-        //     speedSkill: 44,
-        //     bullettype: "b-gold-100",
-        //     avatar: 1,
-        //     gem: 1000,
-        //     gold: 999466100,
-        //     displayname: "Allen",
-        //     guntype: 1,
-        //     x: -2.799999952316284,
-        //     y: 4.599999904632568,
-        //     position: 1,
-        //     vip: 0,
-        //     bullet: {
-        //         _id: {
-        //             timestamp: 1627638832,
-        //             machineIdentifier: 3204872,
-        //             processIdentifier: 25333,
-        //             counter: 9012837
-        //         },
-        //         bulletid: "b-gold-100",
-        //         atk: 100,
-        //         speed: 0.35,
-        //         cost: 100,
-        //         gametype: "fish"
-        //     },
-        //     followSkill: 7605,
-        //     username: "abcdee"
-        // }]; 
+        users = [{
+            ticket: 51,
+            freezeSkill: 3356,
+            bulletlevel: 1,
+            speedSkill: 44,
+            bullettype: "b-gold-100",
+            avatar: 1,
+            gem: 1000,
+            gold: 999466100,
+            displayname: "Allen",
+            guntype: 1,
+            x: -2.799999952316284,
+            y: 4.599999904632568,
+            position: 1,
+            vip: 0,
+            bullet: {
+                _id: {
+                    timestamp: 1627638832,
+                    machineIdentifier: 3204872,
+                    processIdentifier: 25333,
+                    counter: 9012837
+                },
+                bulletid: "b-gold-100",
+                atk: 100,
+                speed: 0.35,
+                cost: 100,
+                gametype: "fish"
+            },
+            followSkill: 7605,
+            username: "abcdee"
+        }];
         users.forEach(element => {
             var user = {
                 displayName: element.displayname,
@@ -279,7 +280,7 @@ cc.Class({
             return;
         }
         //一次创建3条鱼 #####################################################################################################  
-        var fishPrefap = this.fishList.find(x => x.name == _fishMap.type); //_fishMap.type  
+        var fishPrefap = this.fishList.find(x => x.name == "_default"); //_fishMap.type  
         if (fishPrefap != undefined) {
             let fish = cc.instantiate(fishPrefap);
             fish.getComponent("fish").init(_fishMap, this);
@@ -336,8 +337,6 @@ cc.Class({
         var isSkill = model.is_have;
         switch (model.skilltype) {
             case 1:
-
-
                 break;
             case 2:
                 if (isSkill) {
@@ -391,31 +390,31 @@ cc.Class({
                 break;
         }
     },
-    // autoShootOnTaget: function() {
-    //     var _this = this;
-    //     var shortInterval = setInterval(() => {
-    //         if (_glbGameSkill.tagetTo != null) {
-    //             // get poisition center tageted
-    //             var taget = _glbGameSkill.tagetTo.node.getChildByName("taget");
-    //             var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(taget.parent.convertToWorldSpaceAR(taget.getPosition()));
-    //             //
-    //             // var gameTaget = this.tagetLocation.getComponent("taget_location");
-    //             // if (gameTaget.nextPos != null) {
-    //             //     var nextPos = cc.find("Canvas").convertToNodeSpaceAR(gameTaget.nextPos);
-    //             //     console.log(gameTaget.nextPos.x);
-    //             //     if (gameTaget.nextPos != null) {
-    //             //         console.log(`${tagetPos.x} :::::::::::  ${nextPos.x}`);
-    //             //         _this.playerTaget.getComponent("player").shotOnTaget(gameTaget.nextPos, gameTaget.nextTime);
-    //             //         _this.onTouchEnd(tagetPos);
-    //             //     }
-    //             // }
-    //             _this.playerTaget.getComponent("player").shotOnTaget(tagetPos, tagetPos);
-    //             _this.onTouchEnd(tagetPos);
-    //         } else {
-    //             clearInterval(shortInterval);
-    //         }
-    //     }, 0.0002);
-    // },
+    autoShootOnTaget: function() {
+        var _this = this;
+        var shortInterval = setInterval(() => {
+            if (_glbGameSkill.tagetTo != null) {
+                // get poisition center tageted
+                var taget = _glbGameSkill.tagetTo.node.getChildByName("taget");
+                var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(taget.parent.convertToWorldSpaceAR(taget.getPosition()));
+                //
+                // var gameTaget = this.tagetLocation.getComponent("taget_location");
+                // if (gameTaget.nextPos != null) {
+                //     var nextPos = cc.find("Canvas").convertToNodeSpaceAR(gameTaget.nextPos);
+                //     console.log(gameTaget.nextPos.x);
+                //     if (gameTaget.nextPos != null) {
+                //         console.log(`${tagetPos.x} :::::::::::  ${nextPos.x}`);
+                //         _this.playerTaget.getComponent("player").shotOnTaget(gameTaget.nextPos, gameTaget.nextTime);
+                //         _this.onDrawTrackMove(tagetPos);
+                //     }
+                // }
+                _this.playerTaget.getComponent("player").shotOnTaget(tagetPos, tagetPos);
+                //_this.onDrawTrackMove(tagetPos);
+            } else {
+                clearInterval(shortInterval);
+            }
+        }, 0.0002);
+    },
 
     update(dt) {
         // var _this = this;
@@ -424,7 +423,7 @@ cc.Class({
         // }
     },
     // ***************************************************************************************************************
-    onTouchEnd: function(event) {
+    onDrawTrackMove: function(_endPos) {
         if (this.playerTaget != null) {
             var player = this.playerTaget.getComponent("player");
             //停止移动，为了避免没移动结束，却改变了目标位置
@@ -432,7 +431,7 @@ cc.Class({
             this.removeTrackSprites();
             //获取开始的位置 
             this.startPos = cc.find("Canvas").convertToNodeSpaceAR(player.weapon.node.parent.convertToWorldSpaceAR(player.weapon.node.getPosition()));
-            this.endPos = event;
+            this.endPos = _endPos;
             this.spriteMoveAction();
             this.drawTrack(this.endPos);
         }
@@ -462,7 +461,6 @@ cc.Class({
         let distance = this.startPos.mag(this.endPos); //cc.pDistance(, this.endPos);var v = cc.v2(point1, point2);
         //获得轨迹点
         this.trackSprite = this.trackLayout.node.getChildByName("trackSprite");
-        this.trackLayout.zIndex = 99;
         //轨迹点数量
         let trackNum = Math.floor(distance / (this.trackSprite.width + this.trackLayout.spacingX));
         for (i = 1; i < trackNum; i++) {

@@ -20,8 +20,9 @@ cc.Class({
         // 
         weapon: cc.Node,
         weapon_impact: cc.Node,
+        bulletWap: cc.Node,
         weaponType: cc.Integer = 1,
-        bullet: cc.Prefab,
+        bulletPrefab: cc.Prefab,
         bulletLevel: cc.Integer = 1,
         bulletId: cc.String = "",
         bulletType: cc.String = "",
@@ -69,7 +70,6 @@ cc.Class({
         this.goldVal = _player.gold;
         // 
         this.coinController.getComponent("coin_controller").setValue(this.goldVal);
-        ////
         if (_player.weaponType == undefined || _player.weaponType < 1) this.weaponType = 1;
         if (_player.bulletLevel == undefined || _player.bulletLevel < 1) this.bulletLevel = 1;
         this.node.parent = cc.find('Canvas');
@@ -78,7 +78,6 @@ cc.Class({
         frameWeapon.zIndex = 6;
         var frameText = this.node.getChildByName("frame_text");
         //var frameAwait = this.node.getChildByName("frame_await");
-        //
         var widgetWeapon = frameWeapon.getComponent(cc.Widget);
         var widgetText = frameText.getComponent(cc.Widget);
         //
@@ -113,7 +112,6 @@ cc.Class({
                 frameWeapon.getChildByName("btnPlus").setPosition(btnMinusPosition);
                 frameWeapon.getChildByName("btnMinus").setPosition(btnPlusPosition);
                 //frameAwait.angle = 180;
-                //
                 widget.isAlignRight = true;
                 widget.isAlignTop = true;
                 widget.right = 100;
@@ -142,10 +140,7 @@ cc.Class({
             default:
                 break;
         };
-        if (this.isActived) {
-            frameWeapon.getChildByName("btnPlus").active = true;
-            frameWeapon.getChildByName("btnMinus").active = true;
-        }
+
         //render weapon
         //frameAwait.active = false;
         this.node.active = true;
@@ -162,13 +157,21 @@ cc.Class({
         let _this = this;
         //let wp = this.weapon;
         let weaponPos = _this.weapon.node.getPosition();
+        if (this.isActived) {
+            frameWeapon.getChildByName("btnPlus").active = true;
+            frameWeapon.getChildByName("btnMinus").active = true;
+            //var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(weaponPos);
+            // console.log(cc.find("Canvas").convertToNodeSpaceAR(_this.weapon.node.parent.convertToWorldSpaceAR(weaponPos))); 
+            //this.game.trackNode.position = cc.v2(cc.find("Canvas").convertToNodeSpaceAR(cc.v2(abc.x, 47)).x + 100, cc.find("Canvas").convertToNodeSpaceAR(cc.v2(abc.x, 47)).y);
+            //this.node.active = false;
+
+        }
         _game.node.on(cc.Node.EventType.TOUCH_START, function(event) {
             if (_this.isActived) {
                 cc.macro.ENABLE_MULTI_TOUCH = false;
                 event.stopPropagationImmediate();
                 // send poisition  
                 let touchPos = _this.weapon.node.parent.convertToNodeSpaceAR(event.getLocation());
-
                 // // 炮台坐标           
                 // // 炮台到触点的方向向量
                 let dir = touchPos.sub(weaponPos); //  <=> this.node.x - weaponPos.x , this.node.y - weaponPos.y
@@ -203,19 +206,34 @@ cc.Class({
         //
         this.bulletLevel = model.bulletLevel;
         this.bulletId = model.bulletId;
-        this.bullet = cc.instantiate(this.bulletList[this.bulletLevel - 1]);
+        this.bulletPrefab = cc.instantiate(this.bulletList[this.bulletLevel - 1]);
+        //
         this.weapon.node.angle = model.angel;
-        this.bullet.name = model.bulletId;
-        this.bullet.getComponent("bullet").setBullet({
+        //this.game.trackNode.angle = model.angel + 90;
+        //
+        var pos = cc.find("Canvas").convertToNodeSpaceAR(this.weapon.node.parent.convertToWorldSpaceAR(this.weapon_impact.getPosition()));
+        var trackNode = cc.find("Canvas/trackNode");
+        console.log(trackNode);
+        trackNode.zIndex = 100;
+        trackNode.angle = model.angel + 90;
+        // trackNode.position = cc.v2(pos.x * Math.sin(-model.angel / 180 * Math.PI), pos.y * Math.cos(-model.angel / 180 * Math.PI));
+
+        trackNode.position = cc.v2(pos.x, pos.y + 100);
+        //trackNode.parent = cc.director.getScene();
+
+
+        this.bulletPrefab.name = model.bulletId;
+        this.bulletPrefab.getComponent("bullet").setBullet({
             bulletLevel: this.bulletLevel,
             bulletType: this.bulletType,
             bulletId: this.bulletId,
         });
         this.goldVal = model.gold;
         if (!CurrentService.GameSkill.tagetState)
-            this.bullet.getComponent("bullet").shot(this, {
+            this.bulletPrefab.getComponent("bullet").shot(this, {
                 touchLocation: model.touchLocation,
-                dirLocation: model.dirLocation
+                dirLocation: model.dirLocation,
+                //trackNode: this.game.trackNode
             });
         // 
         this.coinController.getComponent("coin_controller").setValue(this.goldVal);
@@ -228,7 +246,7 @@ cc.Class({
         this.bulletType = model.bulletType;
         this.cost = model.cost;
         this.lblBulletLevel.string = this.cost;
-        this.bullet.getComponent("bullet").setBullet(this.bulletLevel, this.bulletType);
+        this.bulletPrefab.getComponent("bullet").setBullet(this.bulletLevel, this.bulletType);
         //
         var skeleton = this.weapon.getComponent(sp.Skeleton);
         skeleton.clearTrack(0);
@@ -265,8 +283,8 @@ cc.Class({
     despawnNet: function(net) {
         this.netsPool.put(net);
     },
-    despawnBullet: function(bullet) {
-        this.bulletPool.put(bullet);
+    despawnBullet: function(_bullet) {
+        this.bulletPool.put(_bullet);
     },
     gainCoins: function(_fishPos, value) {
         this.goldVal += value;

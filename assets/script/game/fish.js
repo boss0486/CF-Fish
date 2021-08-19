@@ -80,7 +80,7 @@ cc.Class({
                 //_this.lblName.string = `右上 >:<`;
                 _glbGameSkill.tagetTo = _this;
                 _this.taget.active = true;
-                //_this.game.autoShootOnTaget();
+                _this.game.autoShootOnTaget();
                 setTimeout(() => {
                     _glbGameSkill.tagetState = false;
                 }, 1000);
@@ -121,8 +121,10 @@ cc.Class({
             }
         }
 
+        var _fspeed = distance / _this.speed;
+
         this.fooTween = cc.tween(_this.node)
-            .to(distance / _this.speed, { position: bz1 })
+            .to(_fspeed / 2, { position: bz1 })
             .call(() => {
                 if (CurrentService.GameSkill.freezeState == false) {
                     _this.cntBezier++;

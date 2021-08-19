@@ -368,7 +368,6 @@ cc.Class({
                     break;
                 case "user_change_bullet": // *****************************************************************************
                     var result = HelperModel.convertMapEntries_ToObject(evtParams.params);
-                    console.log(result);
                     var bullet = JSON.parse(result.bullet.replace("\\", ""));
                     _glbGame.bulletChange({
                         username: result.username,

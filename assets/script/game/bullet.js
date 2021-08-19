@@ -31,6 +31,7 @@ cc.Class({
         speedX: number = 0,
         speedY: number = 0,
         callBack: any = null,
+        bongbongWrap: cc.Node
 
     },
     onLoad() {
@@ -49,7 +50,6 @@ cc.Class({
         this.player = _player;
         this.playerLocation = _player.playerLocation;
         var pos = _player.weapon.node.parent.convertToWorldSpaceAR(_player.weapon.node.getPosition());
-        // var vBullet = model.touchLocation;
         var dirArr = model.dirLocation.split(",");
         var radian = Math.atan2(dirArr[1], dirArr[0]);
         var bulletAngel = radian / Math.PI * 180;
@@ -87,10 +87,10 @@ cc.Class({
             this.node.position = cc.v2(this.node.x + 120 * Math.sin(-this.node.angle / 180 * Math.PI), this.node.y + 120 * Math.cos(-this.node.angle / 180 * Math.PI));
         }
 
-        // this.callBack = function() {
-        //     this.moveLogic(0.029);
-        // }
-        // this.schedule(this.callBack, 0.0001, cc.macro.REPEAT_FOREVER);
+        this.callBack = function() {
+            this.moveLogic(0.04);
+        }
+        this.schedule(this.callBack, 0.02, cc.macro.REPEAT_FOREVER);
         this.node.parent = cc.director.getScene();
     },
     moveLogic(dt) {
@@ -234,6 +234,6 @@ cc.Class({
     },
     update(dt) {
         //console.log(dt);
-        this.moveLogic(dt * 4);
+        //this.moveLogic(dt * 2);
     }
 });
