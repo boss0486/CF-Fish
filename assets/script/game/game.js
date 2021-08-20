@@ -94,7 +94,7 @@ cc.Class({
         //cc.director.getPhysicsManager().debugDrawFlags = 0;
         //
         cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = false;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
         //cc.director.getCollisionManager().enabledDrawBoundingBox = true;
         //cc.director.getPhysicsManager().enabled = true;
         // this.touchingNumber = 0;
@@ -275,6 +275,7 @@ cc.Class({
         }
     },
     gameLoadMaps: function(_fishMap) {
+        return;
         if (_fishMap == undefined || _fishMap.length == 0) {
             console.log("Error: cannot load fish maps.");
             return;
@@ -304,7 +305,7 @@ cc.Class({
         //
         var player = this.playerInRoom.find(x => x.name == model.username);
         if (player != undefined) {
-            player.getComponent("player").setbullet(this, {
+            player.getComponent("player").playerShoot(this, {
                 username: model.username,
                 bulletId: model.bulletid,
                 bulletLevel: model.bulletlevel,

@@ -195,7 +195,7 @@ cc.Class({
             event.stopPropagation();
         }, this);
     },
-    setbullet: function(_game, model) {
+    playerShoot: function(_game, model) {
         var skeleton = this.weapon.getComponent(sp.Skeleton);
         skeleton.clearTrack(0);
         skeleton.addAnimation(0, "speed_1", false);
@@ -209,31 +209,31 @@ cc.Class({
         this.bulletPrefab = cc.instantiate(this.bulletList[this.bulletLevel - 1]);
         //
         this.weapon.node.angle = model.angel;
-        //this.game.trackNode.angle = model.angel + 90;
-        //
-        var pos = cc.find("Canvas").convertToNodeSpaceAR(this.weapon.node.parent.convertToWorldSpaceAR(this.weapon_impact.getPosition()));
-        var trackNode = cc.find("Canvas/trackNode");
-        console.log(trackNode);
-        trackNode.zIndex = 100;
-        trackNode.angle = model.angel + 90;
-        // trackNode.position = cc.v2(pos.x * Math.sin(-model.angel / 180 * Math.PI), pos.y * Math.cos(-model.angel / 180 * Math.PI));
-
-        trackNode.position = cc.v2(pos.x, pos.y + 100);
-        //trackNode.parent = cc.director.getScene();
-
-
         this.bulletPrefab.name = model.bulletId;
+        //  *****************************************************************************************************************************
+        var pos = cc.find("Canvas").convertToNodeSpaceAR(this.weapon.node.parent.convertToWorldSpaceAR(this.weapon.node.getPosition()));
+        var trackNode = cc.find("Canvas/trackNode");
+        trackNode.zIndex = 100;
+        trackNode.angle = model.angel;
+        // trackNode.position = cc.v2(pos.x * Math.sin(-model.angel / 180 * Math.PI), pos.y * Math.cos(-model.angel / 180 * Math.PI));
+        trackNode.position = cc.v2(pos.x, pos.y);
+        //trackNode.parent = cc.director.getScene();
+        //trackNode.addChild(this.bulletPrefab, 1, model.bulletId);
+        //console.log(trackNode);
+
         this.bulletPrefab.getComponent("bullet").setBullet({
             bulletLevel: this.bulletLevel,
             bulletType: this.bulletType,
             bulletId: this.bulletId,
         });
+
         this.goldVal = model.gold;
         if (!CurrentService.GameSkill.tagetState)
             this.bulletPrefab.getComponent("bullet").shot(this, {
                 touchLocation: model.touchLocation,
                 dirLocation: model.dirLocation,
-                //trackNode: this.game.trackNode
+                weaponAngel: model.angel
+                    //trackNode: this.game.trackNode
             });
         // 
         this.coinController.getComponent("coin_controller").setValue(this.goldVal);

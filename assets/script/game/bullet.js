@@ -12,6 +12,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        id: cc.String = "",
         bullets: [cc.Prefab],
         angle: cc.Interger = 0, // angle of weapon
         bulletType: cc.String = "",
@@ -49,20 +50,31 @@ cc.Class({
         this.node.zIndex = 1;
         this.player = _player;
         this.playerLocation = _player.playerLocation;
-        var pos = _player.weapon.node.parent.convertToWorldSpaceAR(_player.weapon.node.getPosition());
-        var dirArr = model.dirLocation.split(",");
-        var radian = Math.atan2(dirArr[1], dirArr[0]);
-        var bulletAngel = radian / Math.PI * 180;
-        if (bulletAngel < 0) {
-            bulletAngel = (360 - Math.abs(bulletAngel));
-        }
-        this.init(pos, parseInt(bulletAngel));
+        // var dirArr = model.dirLocation.split(",");
+        // var radian = Math.atan2(dirArr[1], dirArr[0]);
+        // var bulletAngel = radian / Math.PI * 180;
+        // if (bulletAngel < 0) {
+        //     bulletAngel = (360 - Math.abs(bulletAngel));
+        // } 
+        this.node.angle = 0;
+        var trackNode = cc.find("Canvas/trackNode");
+        trackNode.addChild(this.node, 1, this.id);
+        var pos = trackNode.parent.convertToWorldSpaceAR(trackNode.position);
+        console.log(pos);
+        this.node.position = pos;
+
+        console.log(trackNode.position);
+        //trackNode.parent.convertToWorldSpaceAR(trackNode.getComponent("bullet_wap").node.getPosition());
+        console.log(model.weaponAngel);
+        this.init(trackNode.position, 90);
     },
     // 根据武器等级设置子弹等级
     setBullet(model) {
         this.bulletLevel = model.bulletLevel;
         this.bulletType = model.bulletType;
         this.bulletId = model.bulletId;
+        this.id = model.bulletId;
+        // console.log(this.bulletId); 
     },
     init(pos, angle) {
         this.defSpeed = this.speed;
@@ -70,28 +82,28 @@ cc.Class({
             this.speedBonus = 1;
         } else
             this.speedBonus = 1;
-        //
-        this.node.position = cc.v2(pos);
+        // 
         if (this.playerLocation == 3 || this.playerLocation == 4) {
             this.speedX = -this.getSpeedX(this.defSpeed, Math.abs(angle)) * this.speedBonus;
             this.speedY = -this.getSpeedY(this.defSpeed, Math.abs(angle)) * this.speedBonus;
-            this.node.angle = -(90 - angle + 180);
+            //this.node.angle = -(angle + 180);
             // set first location
-            this.node.position = cc.v2(this.node.x + 120 * Math.sin(-this.node.angle / 180 * Math.PI), this.node.y + 120 * Math.cos(-this.node.angle / 180 * Math.PI));
+            this.node.position = cc.v2(this.node.x * Math.sin(this.node.angle / 180 * Math.PI), this.node.y * Math.cos(this.node.angle / 180 * Math.PI));
 
         } else {
             this.speedX = this.getSpeedX(this.defSpeed, Math.abs(angle)) * this.speedBonus;
             this.speedY = this.getSpeedY(this.defSpeed, Math.abs(angle)) * this.speedBonus;
-            this.node.angle = -(90 - angle);
             // set first location
-            this.node.position = cc.v2(this.node.x + 120 * Math.sin(-this.node.angle / 180 * Math.PI), this.node.y + 120 * Math.cos(-this.node.angle / 180 * Math.PI));
+            this.node.angle = 0;
+            // set first location
+            this.node.position = cc.v2(this.node.x * Math.sin(this.node.angle / 180 * Math.PI), this.node.y * Math.cos(this.node.angle / 180 * Math.PI));
         }
 
         this.callBack = function() {
-            this.moveLogic(0.04);
+            this.moveLogic(0.05);
         }
         this.schedule(this.callBack, 0.02, cc.macro.REPEAT_FOREVER);
-        this.node.parent = cc.director.getScene();
+        //this.node.parent = cc.director.getScene();
     },
     moveLogic(dt) {
         if ((this.speedY > 0 && this.node.y > this.limitY) || (this.speedY < 0 && this.node.y < 20)) {
