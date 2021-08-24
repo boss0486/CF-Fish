@@ -94,7 +94,7 @@ cc.Class({
         //cc.director.getPhysicsManager().debugDrawFlags = 0;
         //
         cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
+        cc.director.getCollisionManager().enabledDebugDraw = false;
         //cc.director.getCollisionManager().enabledDrawBoundingBox = true;
         //cc.director.getPhysicsManager().enabled = true;
         // this.touchingNumber = 0;
@@ -275,7 +275,6 @@ cc.Class({
         }
     },
     gameLoadMaps: function(_fishMap) {
-        return;
         if (_fishMap == undefined || _fishMap.length == 0) {
             console.log("Error: cannot load fish maps.");
             return;

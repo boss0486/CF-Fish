@@ -61,8 +61,8 @@
         0,
         0,
         1,
-        0.9,
-        0.9,
+        0.7,
+        0.8,
         1
       ]
     },
@@ -140,6 +140,7 @@
       "__id__": 1
     },
     "_enabled": true,
+    "id": "",
     "bullets": [],
     "angle": 1,
     "bulletType": "b-gold-100",
@@ -159,6 +160,7 @@
     "speedY": 0,
     "callBack": null,
     "bongbongWrap": null,
+    "tween": null,
     "_id": ""
   },
   {

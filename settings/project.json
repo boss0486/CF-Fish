@@ -66,6 +66,7 @@
       false,
       null,
       null,
+      true,
       true
     ],
     [
@@ -108,7 +109,7 @@
       false,
       false,
       false,
-      false,
+      true,
       false,
       false,
       false,
@@ -133,7 +134,7 @@
     "Ui",
     "Ball",
     "Fish",
-    ""
+    "ScreenBar"
   ],
   "simulator-orientation": false,
   "simulator-resolution": {
