@@ -39,7 +39,7 @@ cc.Class({
         netPrefab: cc.Prefab,
         oneNet: cc.Node,
         //
-        bulletPool: cc.NodePool,
+        //bulletPool: cc.NodePool,
         oneBullet: cc.Node,
         //
         coinController: cc.Node,
@@ -50,7 +50,7 @@ cc.Class({
 
     onLoad() {
         this.netsPool = new cc.NodePool();
-        this.bulletPool = new cc.NodePool("bullet");
+        //this.bulletPool = new cc.NodePool("bullet");
     },
 
     start() {
@@ -215,8 +215,14 @@ cc.Class({
         var trackNode = cc.find("Canvas/trackNode");
         trackNode.zIndex = 100;
         trackNode.angle = model.angel;
+        trackNode.position = pos;
+        //let bpos = cc.v2(pos.x + 120 * Math.sin(model.angel / 180 * 3.14), pos.y + 120 * Math.cos(model.angel / 180 * 3.14));
+        // if (this.playerLocation == 3 || this.playerLocation == 4) {
+        //     this.node.angle = -(this.angle - 180);
+        //     bpos = cc.v2(_weaponPos.x - 120 * Math.sin(this.angle / 180 * 3.14), _weaponPos.y - 120 * Math.cos(this.angle / 180 * 3.14));
+        // }
         // trackNode.position = cc.v2(pos.x * Math.sin(-model.angel / 180 * Math.PI), pos.y * Math.cos(-model.angel / 180 * Math.PI));
-        trackNode.position = cc.v2(pos.x, pos.y);
+        //trackNode.position = bpos;
         //trackNode.parent = cc.director.getScene();
         //trackNode.addChild(this.bulletPrefab, 1, model.bulletId);
         //console.log(trackNode);
@@ -283,16 +289,16 @@ cc.Class({
     despawnNet: function(net) {
         this.netsPool.put(net);
     },
-    despawnBullet: function(_bullet) {
-        this.bulletPool.put(_bullet);
-    },
+    // despawnBullet: function(_bullet) {
+    //     this.bulletPool.put(_bullet);
+    // },
     gainCoins: function(_fishPos, value) {
         this.goldVal += value;
         var coinPos = this.lblGold.node.position;
         this.coinNode.getComponent("coin_controller").gainCoins(_fishPos, coinPos, value, this.goldVal);
     },
     // taget
-    shotOnTaget: function(tagetPos, nextTime) {
+    shotOnTaget: function(tagetPos) {
         if (this.isActived) {
             let weaponPos1 = this.weapon.node.position;
             let weaponPos = cc.find('Canvas').convertToNodeSpaceAR(weaponPos1);
@@ -306,18 +312,11 @@ cc.Class({
             }
             let angle = cc.v2(dir).signAngle(cc.v2(0, 1));
             var degree = angle / Math.PI * 180;
-            // //赋值给节点 
-
-            if (nextTime <= 0)
-                return;
-            //
-            let distance = weaponPos.mag(touchPos);
-            var vBullet = distance / nextTime;
             //
             CurrentService.SFxConnect.smartFox.gamePlayerShot({
                 angel: parseInt(-degree),
-                location: `${dir.x},${dir.y}`,
-                touchLocation: `${vBullet}`,
+                location: ``,
+                touchLocation: `${touchPos.x},${touchPos.y}`,
                 bulletType: this.bulletType
             });
         }

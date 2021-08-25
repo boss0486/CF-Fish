@@ -81,9 +81,6 @@ cc.Class({
                 _glbGameSkill.tagetTo = _this;
                 _this.taget.active = true;
                 _this.game.autoShootOnTaget();
-                setTimeout(() => {
-                    _glbGameSkill.tagetState = false;
-                }, 1000);
             } else {
                 _glbGameSkill.tagetState = false;
             }
@@ -106,25 +103,10 @@ cc.Class({
             distance = Math.sqrt(
                 (arr[this.cntBezier - 1].x - arr[this.cntBezier].x) * (arr[this.cntBezier - 1].x - arr[this.cntBezier].x) +
                 (arr[this.cntBezier - 1].y - arr[this.cntBezier].y) * (arr[this.cntBezier - 1].y - arr[this.cntBezier].y));
-        //
-        _glbGameSkill.tagetNexPos = null;
-        if (_this.cntBezier < arr.length - 1) {
-            if (_glbGameSkill.tagetTo != null) {
-                if (_glbGameSkill.tagetTo.id == _this.id) {
-                    var gameTaget = _this.game.node.getChildByName("tagetLocation").getComponent("taget_location");
-                    gameTaget.nextPos = null;
-                    gameTaget.nextTime = null;
-                    //
-                    gameTaget.nextPos = new cc.v2(arr[this.cntBezier + 1].x, arr[this.cntBezier + 1].y);
-                    gameTaget.nextTime = distance / _this.speed;
-                }
-            }
-        }
-
+        // 
         var _fspeed = distance / _this.speed;
-
         this.fooTween = cc.tween(_this.node)
-            .to(_fspeed / 2, { position: bz1 })
+            .to(_fspeed / 3, { position: bz1 })
             .call(() => {
                 if (CurrentService.GameSkill.freezeState == false) {
                     _this.cntBezier++;
@@ -135,7 +117,7 @@ cc.Class({
                     //
                     _this.swimming();
                 }
-                //
+
                 if (_this.cntBezier == this.bezierArray.length) {
                     //huy skill taget
                     if (_glbGameSkill.tagetTo != null && _this.id == _glbGameSkill.tagetTo.id) {
@@ -145,7 +127,7 @@ cc.Class({
                     CurrentService.SFxConnect.smartFox.gameRemoveEnemy(this.id);
                     this.node.destroy();
                 }
-                //
+
             }).start();
         //  
     },
@@ -178,8 +160,8 @@ cc.Class({
         console.log("tra cho:" + _player.name);
         _player.getComponent("player").gainCoins(fishPos, model.earn);
         // huy skill taget
-        this.destroySkillTaget();
-        this.node.destroy();
+        //this.destroySkillTaget();
+        //this.node.destroy();
     },
     // va cham
     // onCollisionEnter(other, self) {
@@ -226,26 +208,5 @@ cc.Class({
         }
         // 
         return arrResult;
-    },
-    calculateAngle(first, second) {
-        let len_y = second.y - first.y;
-        let len_x = second.x - first.x;
-        let tan_yx = Math.abs(len_y / len_x);
-        let temp = Math.atan(tan_yx) * 180 / Math.PI;
-        let angle = 0;
-        if (len_y > 0 && len_x < 0) {
-            angle = temp - 90;
-        } else if (len_y > 0 && len_x > 0) {
-            angle = -temp + 90;
-        } else if (len_y < 0 && len_x < 0) {
-            angle = -temp - 90;
-        } else if (len_y < 0 && len_x > 0) {
-            angle = temp + 90;
-        } else if (len_y == 0 && len_x != 0) {
-            angle = len_x < 0 ? -90 : 90;
-        } else if (len_x == 0 && len_y != 0) {
-            angle = len_y < 0 ? 180 : 0;
-        }
-        return angle;
     },
 });

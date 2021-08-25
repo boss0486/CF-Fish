@@ -102,7 +102,7 @@ cc.Class({
         var self = this;
         cc.resources.loadDir("prefab/enemy", cc.Prefab, function(err, fishPrefabs) {
             self.fishList = fishPrefabs;
-            //self.testMaps();
+            self.testMaps();
         });
     },
     start() {},
@@ -252,13 +252,8 @@ cc.Class({
             "speedbonus": 0,
             "init": ["-108_292"],
             "path": [
-                { "x": 512.4500122070312, "y": 157.47499084472656 },
-                { "x": 531.6937866210938, "y": 139.6906280517578 },
-                { "x": 550.4000244140625, "y": 121.19998168945312 },
-                { "x": 568.4562377929688, "y": 102.13436126708984 },
-                { "x": 585.75, "y": 82.6249771118164 },
-                { "x": 785.75, "y": 500 },
-                { "x": 985.75, "y": 300 }
+                { "x": 0, "y": 400 },
+                { "x": 1280, "y": 400 }
             ],
             "color": "none",
             "id": "40527FB41002B59DA03A1012D",
@@ -268,13 +263,14 @@ cc.Class({
             "speed": 67.5
         };
         //一次创建3条鱼 #####################################################################################################  
-        var fishPrefap = this.fishList.find(x => x.name == "cachinh"); //_fishMap.type  
+        var fishPrefap = this.fishList.find(x => x.name == "_default"); //_fishMap.type  
         if (fishPrefap != undefined) {
             let fish = cc.instantiate(fishPrefap);
             fish.getComponent("fish").init(_fishMap, this);
         }
     },
     gameLoadMaps: function(_fishMap) {
+        return;
         if (_fishMap == undefined || _fishMap.length == 0) {
             console.log("Error: cannot load fish maps.");
             return;
@@ -392,35 +388,34 @@ cc.Class({
     },
     autoShootOnTaget: function() {
         var _this = this;
+        _glbGameSkill.tagetState = false;
+        // get poisition center tageted
+        //var taget = _glbGameSkill.tagetTo; //_glbGameSkill.tagetTo.node.getChildByName("taget");
+
+
+
         var shortInterval = setInterval(() => {
-            if (_glbGameSkill.tagetTo != null) {
-                // get poisition center tageted
-                var taget = _glbGameSkill.tagetTo.node.getChildByName("taget");
-                var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(taget.parent.convertToWorldSpaceAR(taget.getPosition()));
-                //
-                // var gameTaget = this.tagetLocation.getComponent("taget_location");
-                // if (gameTaget.nextPos != null) {
-                //     var nextPos = cc.find("Canvas").convertToNodeSpaceAR(gameTaget.nextPos);
-                //     console.log(gameTaget.nextPos.x);
-                //     if (gameTaget.nextPos != null) {
-                //         console.log(`${tagetPos.x} :::::::::::  ${nextPos.x}`);
-                //         _this.playerTaget.getComponent("player").shotOnTaget(gameTaget.nextPos, gameTaget.nextTime);
-                //         _this.onDrawTrackMove(tagetPos);
-                //     }
-                // }
-                _this.playerTaget.getComponent("player").shotOnTaget(tagetPos, tagetPos);
-                //_this.onDrawTrackMove(tagetPos);
-            } else {
+            if (_glbGameSkill.tagetTo == null) {
                 clearInterval(shortInterval);
             }
-        }, 0.0002);
-    },
+            // get poisition center tageted
+            var taget = _glbGameSkill.tagetTo.node; //_glbGameSkill.tagetTo.node.getChildByName("taget");
+            var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(taget.parent.convertToWorldSpaceAR(taget.getPosition()));
+            //
+            // var gameTaget = this.tagetLocation.getComponent("taget_location");
+            // if (gameTaget.nextPos != null) {
+            //     var nextPos = cc.find("Canvas").convertToNodeSpaceAR(gameTaget.nextPos);
+            //     console.log(gameTaget.nextPos.x);
+            //     if (gameTaget.nextPos != null) {
+            //         console.log(`${tagetPos.x} :::::::::::  ${nextPos.x}`);
+            //         _this.playerTaget.getComponent("player").shotOnTaget(gameTaget.nextPos, gameTaget.nextTime);
+            //         _this.onDrawTrackMove(tagetPos);
+            //     }
+            // }
+            _this.playerTaget.getComponent("player").shotOnTaget(tagetPos);
+            //_this.onDrawTrackMove(tagetPos);
 
-    update(dt) {
-        // var _this = this;
-        // if (_glbGameSkill.tagetTo != null) {
-        //     _this.playerTaget.getComponent("player").shotOnTaget(_glbGameSkill.tagetTo.node.position);
-        // }
+        }, 0.001);
     },
     // ***************************************************************************************************************
     onDrawTrackMove: function(_endPos) {

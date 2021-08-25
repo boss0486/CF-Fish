@@ -5,14 +5,9 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import Player from "../player/player";
-
-
-
 cc.Class({
     extends: cc.Component,
     properties: {
-        player: Player,
         curLevel: cc.Interger = 1,
     },
 
@@ -35,9 +30,5 @@ cc.Class({
         var skeleton = this.node.getComponent(sp.Skeleton);
         skeleton.addAnimation(0, "impact3", false, 0.1);
         skeleton.addAnimation(0, "impact2", false, 0);
-    },
-    //
-    despawnNet: function() {
-        this.game.despawnNet(this.node);
     }
 });

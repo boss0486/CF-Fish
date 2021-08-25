@@ -48,28 +48,14 @@ cc.Class({
         this.limitY = this.screenHeight;
     },
     shot(_player, model) {
-        this.node.zIndex = 1;
         this.player = _player;
         this.playerLocation = _player.playerLocation;
-        // var dirArr = model.dirLocation.split(",");
-        // var radian = Math.atan2(dirArr[1], dirArr[0]);
-        // var bulletAngel = radian / Math.PI * 180;
-        // if (bulletAngel < 0) {
-        //     bulletAngel = (360 - Math.abs(bulletAngel));
-        // } 
+        //  
         if (_glbGameSkill.tagetTo != null) {
             this.node.angle = 0;
             var trackNode = cc.find("Canvas/trackNode");
             trackNode.addChild(this.node, 1, this.id);
-            var _weaponPos = trackNode.parent.convertToWorldSpaceAR(trackNode.position);
-            this.node.position = _weaponPos;
-            let bpos = cc.v2(_weaponPos.x + 120 * Math.sin(this.angle / 180 * 3.14), _weaponPos.y + 120 * Math.cos(this.angle / 180 * 3.14));
-            if (this.playerLocation == 3 || this.playerLocation == 4) {
-                this.node.angle = -(this.angle - 180);
-                bpos = cc.v2(_weaponPos.x - 120 * Math.sin(this.angle / 180 * 3.14), _weaponPos.y - 120 * Math.cos(this.angle / 180 * 3.14));
-            }
-            this.node.parent = cc.director.getScene();
-
+            this.moveTageLogic();
         } else {
             this.node.zIndex = 1;
             this.player = _player;
@@ -79,10 +65,10 @@ cc.Class({
             this.angle = -_player.weapon.node.angle;
             this.node.angle = -this.angle;
             //
-            let bpos = cc.v2(_weaponPos.x + 120 * Math.sin(this.angle / 180 * 3.14), _weaponPos.y + 120 * Math.cos(this.angle / 180 * 3.14));
+            let bpos = cc.v2(_weaponPos.x + 120 * Math.sin(this.angle / 180 * Math.PI), _weaponPos.y + 120 * Math.cos(this.angle / 180 * Math.PI));
             if (this.playerLocation == 3 || this.playerLocation == 4) {
                 this.node.angle = -(this.angle - 180);
-                bpos = cc.v2(_weaponPos.x - 120 * Math.sin(this.angle / 180 * 3.14), _weaponPos.y - 120 * Math.cos(this.angle / 180 * 3.14));
+                bpos = cc.v2(_weaponPos.x - 120 * Math.sin(this.angle / 180 * Math.PI), _weaponPos.y - 120 * Math.cos(this.angle / 180 * Math.PI));
             }
             //
             this.node.position = bpos;
@@ -101,31 +87,28 @@ cc.Class({
         this.bulletType = model.bulletType;
         this.bulletId = model.bulletId;
         this.id = model.bulletId;
+
+        //this.node.zIndex = 7;
     },
     moveLogic() {
+
         let bpos = cc.v2(this.node.x + 2000 * Math.sin(this.angle / 180 * Math.PI), this.node.y + 2000 * Math.cos(this.angle / 180 * Math.PI));
         if (this.playerLocation == 3 || this.playerLocation == 4) {
             bpos = cc.v2(this.node.x - 2000 * Math.sin(this.angle / 180 * Math.PI), this.node.y - 2000 * Math.cos(this.angle / 180 * Math.PI));
         }
-        this.tween = cc.tween(this.node).to(3, { position: bpos });
-        this.tween.start();
+        cc.tween(this.node).to(3, { position: bpos }).start();
     },
     moveTageLogic() {
-        let bpos = cc.v2(this.node.x + 2000 * Math.sin(this.angle / 180 * Math.PI), this.node.y + 2000 * Math.cos(this.angle / 180 * Math.PI));
+        var degree = parseInt(this.angle / 180 * Math.PI);
+        let bpos = cc.v2(this.node.x + 2000 * Math.sin(degree), this.node.y + 2000 * Math.cos(degree));
         if (this.playerLocation == 3 || this.playerLocation == 4) {
-            bpos = cc.v2(this.node.x - 2000 * Math.sin(this.angle / 180 * Math.PI), this.node.y - 2000 * Math.cos(this.angle / 180 * Math.PI));
+            bpos = cc.v2(this.node.x - 2000 * Math.sin(degree), this.node.y - 2000 * Math.cos(degree));
         }
-        this.tween = cc.tween(this.node).to(3, { position: bpos });
-        this.tween.start();
+        //
+        cc.tween(this.node).to(5, { position: bpos }).start();
     },
     onCollisionEnter(other, self) {
         //
-        // if (other.tag == 1 || other.tag == 3) { //top
-        //     self.node.angle += 180 - 2 * self.node.angle
-        // }
-        // if (other.tag == 4 || other.tag == 5) { //left
-        //     self.node.angle += -2 * self.node.angle
-        // }
         let otherNode = other.node;
         switch (otherNode.name) {
             case "screenLeft":
@@ -144,6 +127,7 @@ cc.Class({
                 cc.tween(self.node).to(2, { position: cc.v2(bpos.x, bpos.y) }).start();
                 break;
             case "screenRight":
+                console.log("cham right");
                 self.node.angle += -2 * self.node.angle;
                 var bpos = cc.v2(self.node.x + 2000 * Math.sin(-self.node.angle / 180 * Math.PI), self.node.y + 2000 * Math.cos(-self.node.angle / 180 * Math.PI));
                 cc.tween(self.node).to(2, { position: cc.v2(bpos.x, bpos.y) }).start();
@@ -151,29 +135,31 @@ cc.Class({
             default:
                 console.log("Chạm cá");
                 let fish = other.node.getComponent("fish");
-                // let posb = self.world.points;
-                // let posNet = posb[0].add(posb[3]).mul(0.5);
-                // // 矩形碰撞组件顶点坐标，左上，左下，右下，右上
-                // if (_glbGameSkill.tagetTo != null) {
-                //     if (fish.id == _glbGameSkill.tagetTo.id) {
-                //         this.player.castNet(posNet);
-                //         this.player.despawnBullet(this.node);
-                //         CurrentService.SFxConnect.smartFox.gameAttackEnemy({
-                //             enemyId: fish.id,
-                //             bulletType: this.bulletType,
-                //             bulletId: this.bulletId
-                //         });
-                //     }
+                let posb = self.world.points;
+                let posNet = posb[0].add(posb[3]).mul(0.5);
+                // 矩形碰撞组件顶点坐标，左上，左下，右下，右上
+                if (_glbGameSkill.tagetTo != null) {
+                    if (fish.id == _glbGameSkill.tagetTo.id) {
+                        this.player.castNet(posNet);
+                        self.node.destroy();
+                        //this.player.despawnBullet(this.node);
+                        // CurrentService.SFxConnect.smartFox.gameAttackEnemy({
+                        //     enemyId: fish.id,
+                        //     bulletType: this.bulletType,
+                        //     bulletId: this.bulletId
+                        // });
+                    }
 
-                // } else {
-                //     this.player.castNet(posNet);
-                //     this.player.despawnBullet(this.node);
-                //     CurrentService.SFxConnect.smartFox.gameAttackEnemy({
-                //         enemyId: fish.id,
-                //         bulletType: this.bulletType,
-                //         bulletId: this.bulletId
-                //     });
-                // }
+                } else {
+                    this.player.castNet(posNet);
+                    self.node.destroy();
+                    //this.player.despawnBullet(this.node);
+                    // CurrentService.SFxConnect.smartFox.gameAttackEnemy({
+                    //     enemyId: fish.id,
+                    //     bulletType: this.bulletType,
+                    //     bulletId: this.bulletId
+                    // });
+                }
                 break;
         }
     },
