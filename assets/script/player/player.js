@@ -57,8 +57,8 @@ cc.Class({
 
     },
 
-    // update (dt) {},
     init: function(_game, _player) {
+        this.node.parent = cc.director.getScene();
         // 
         this.game = _game;
         this.node.zIndex = 5;
@@ -72,10 +72,10 @@ cc.Class({
         this.coinController.getComponent("coin_controller").setValue(this.goldVal);
         if (_player.weaponType == undefined || _player.weaponType < 1) this.weaponType = 1;
         if (_player.bulletLevel == undefined || _player.bulletLevel < 1) this.bulletLevel = 1;
-        this.node.parent = cc.find('Canvas');
+
         var widget = this.node.getComponent(cc.Widget);
         var frameWeapon = this.node.getChildByName("frame_weapon");
-        frameWeapon.zIndex = 6;
+        frameWeapon.zIndex = 10;
         var frameText = this.node.getChildByName("frame_text");
         //var frameAwait = this.node.getChildByName("frame_await");
         var widgetWeapon = frameWeapon.getComponent(cc.Widget);
@@ -213,18 +213,9 @@ cc.Class({
         //  *****************************************************************************************************************************
         var pos = cc.find("Canvas").convertToNodeSpaceAR(this.weapon.node.parent.convertToWorldSpaceAR(this.weapon.node.getPosition()));
         var trackNode = cc.find("Canvas/trackNode");
-        trackNode.zIndex = 100;
+        trackNode.zIndex = 2;
         trackNode.angle = model.angel;
         trackNode.position = pos;
-        //let bpos = cc.v2(pos.x + 120 * Math.sin(model.angel / 180 * 3.14), pos.y + 120 * Math.cos(model.angel / 180 * 3.14));
-        // if (this.playerLocation == 3 || this.playerLocation == 4) {
-        //     this.node.angle = -(this.angle - 180);
-        //     bpos = cc.v2(_weaponPos.x - 120 * Math.sin(this.angle / 180 * 3.14), _weaponPos.y - 120 * Math.cos(this.angle / 180 * 3.14));
-        // }
-        // trackNode.position = cc.v2(pos.x * Math.sin(-model.angel / 180 * Math.PI), pos.y * Math.cos(-model.angel / 180 * Math.PI));
-        //trackNode.position = bpos;
-        //trackNode.parent = cc.director.getScene();
-        //trackNode.addChild(this.bulletPrefab, 1, model.bulletId);
         //console.log(trackNode);
 
         this.bulletPrefab.getComponent("bullet").setBullet({
@@ -239,7 +230,6 @@ cc.Class({
                 touchLocation: model.touchLocation,
                 dirLocation: model.dirLocation,
                 weaponAngel: model.angel
-                    //trackNode: this.game.trackNode
             });
         // 
         this.coinController.getComponent("coin_controller").setValue(this.goldVal);
@@ -298,27 +288,24 @@ cc.Class({
         this.coinNode.getComponent("coin_controller").gainCoins(_fishPos, coinPos, value, this.goldVal);
     },
     // taget
-    shotOnTaget: function(tagetPos) {
-        if (this.isActived) {
-            let weaponPos1 = this.weapon.node.position;
-            let weaponPos = cc.find('Canvas').convertToNodeSpaceAR(weaponPos1);
-            let touchPos = this.weapon.node.parent.convertToNodeSpaceAR(tagetPos);
-            // // 炮台到触点的方向向量
-            let dir = touchPos.sub(weaponPos);
-            // // 计算夹角，这个夹角是带方向的
-            if (dir.x == 0 && dir.y == 0) {
-                dir.x = 1;
-                dir.y = 1;
-            }
-            let angle = cc.v2(dir).signAngle(cc.v2(0, 1));
-            var degree = angle / Math.PI * 180;
-            //
-            CurrentService.SFxConnect.smartFox.gamePlayerShot({
-                angel: parseInt(-degree),
-                location: ``,
-                touchLocation: `${touchPos.x},${touchPos.y}`,
-                bulletType: this.bulletType
-            });
-        }
-    }
+    shotOnTaget: function(_taget) {
+        let weaponPos = cc.find('Canvas').convertToNodeSpaceAR(this.weapon.node.position);
+        //
+        var _tagetp1 = _taget.getChildByName("taget");
+        var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(_tagetp1.parent.convertToWorldSpaceAR(_tagetp1.position));
+        let touchPos = this.weapon.node.parent.convertToNodeSpaceAR(tagetPos);
+        // // 炮台到触点的方向向量
+        let dir = touchPos.sub(weaponPos);
+        var angle = Math.atan2(dir.y, dir.x) / Math.PI * 180;
+        this.weapon.node.angle = -(90 - angle);
+
+        let angle1 = cc.v2(dir).signAngle(cc.v2(0, 1));
+        var degree = angle1 / Math.PI * 180;
+        CurrentService.SFxConnect.smartFox.gamePlayerShot({
+            angel: parseInt(-degree),
+            location: ``,
+            touchLocation: `${touchPos.x},${touchPos.y}`,
+            bulletType: this.bulletType
+        });
+    },
 });

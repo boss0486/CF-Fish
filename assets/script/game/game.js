@@ -94,7 +94,7 @@ cc.Class({
         //cc.director.getPhysicsManager().debugDrawFlags = 0;
         //
         cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = false;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
         //cc.director.getCollisionManager().enabledDrawBoundingBox = true;
         //cc.director.getPhysicsManager().enabled = true;
         // this.touchingNumber = 0;
@@ -252,8 +252,10 @@ cc.Class({
             "speedbonus": 0,
             "init": ["-108_292"],
             "path": [
-                { "x": 0, "y": 400 },
-                { "x": 1280, "y": 400 }
+                { "x": 0, "y": 300 },
+                { "x": 1200, "y": 350 },
+                { "x": 0, "y": 450 },
+                { "x": 1200, "y": 600 }
             ],
             "color": "none",
             "id": "40527FB41002B59DA03A1012D",
@@ -270,7 +272,6 @@ cc.Class({
         }
     },
     gameLoadMaps: function(_fishMap) {
-        return;
         if (_fishMap == undefined || _fishMap.length == 0) {
             console.log("Error: cannot load fish maps.");
             return;
@@ -380,42 +381,24 @@ cc.Class({
                         _this.playerTaget = player;
                     }
                 }
-                //
                 break;
             default:
                 break;
         }
     },
-    autoShootOnTaget: function() {
+    autoShootOnTaget: function(_taget1) {
+        var _abc = cc.find(`Canvas/${_taget1}`);
         var _this = this;
         _glbGameSkill.tagetState = false;
-        // get poisition center tageted
-        //var taget = _glbGameSkill.tagetTo; //_glbGameSkill.tagetTo.node.getChildByName("taget");
-
-
-
-        var shortInterval = setInterval(() => {
-            if (_glbGameSkill.tagetTo == null) {
-                clearInterval(shortInterval);
+        this.callBack = function() {
+            if (_abc.name == "") {
+                _this.unschedule(_this.callback);
+                return;
             }
-            // get poisition center tageted
-            var taget = _glbGameSkill.tagetTo.node; //_glbGameSkill.tagetTo.node.getChildByName("taget");
-            var tagetPos = cc.find("Canvas").convertToNodeSpaceAR(taget.parent.convertToWorldSpaceAR(taget.getPosition()));
             //
-            // var gameTaget = this.tagetLocation.getComponent("taget_location");
-            // if (gameTaget.nextPos != null) {
-            //     var nextPos = cc.find("Canvas").convertToNodeSpaceAR(gameTaget.nextPos);
-            //     console.log(gameTaget.nextPos.x);
-            //     if (gameTaget.nextPos != null) {
-            //         console.log(`${tagetPos.x} :::::::::::  ${nextPos.x}`);
-            //         _this.playerTaget.getComponent("player").shotOnTaget(gameTaget.nextPos, gameTaget.nextTime);
-            //         _this.onDrawTrackMove(tagetPos);
-            //     }
-            // }
-            _this.playerTaget.getComponent("player").shotOnTaget(tagetPos);
-            //_this.onDrawTrackMove(tagetPos);
-
-        }, 0.001);
+            _this.playerTaget.getComponent("player").shotOnTaget(_abc);
+        };
+        this.schedule(this.callBack, 0.0001, cc.macro.REPEAT_FOREVER);
     },
     // ***************************************************************************************************************
     onDrawTrackMove: function(_endPos) {

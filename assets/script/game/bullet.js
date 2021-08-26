@@ -23,15 +23,7 @@ cc.Class({
         bulletLevel: cc.Interger = 1,
         playerLocation: cc.Interger = 0,
         borderTotal: cc.Interger = 0,
-        //
-        screenWidth: number = 0,
-        screenHeight: number = 0,
-        limitX: number = 0,
-        limitY: number = 0,
-        defSpeed: number = 0,
-        speedX: number = 0,
-        speedY: number = 0,
-        callBack: any = null,
+        //  
         bongbongWrap: cc.Node,
         tween: cc.tween
 
@@ -42,10 +34,7 @@ cc.Class({
     },
 
     start() {
-        this.screenWidth = Math.floor(cc.winSize.width);
-        this.screenHeight = Math.floor(cc.winSize.height);
-        this.limitX = this.screenWidth;
-        this.limitY = this.screenHeight;
+        //
     },
     shot(_player, model) {
         this.player = _player;
@@ -56,8 +45,30 @@ cc.Class({
             var trackNode = cc.find("Canvas/trackNode");
             trackNode.addChild(this.node, 1, this.id);
             this.moveTageLogic();
+            //
+            // var followMe = this;
+            // var target = cc.v2(500, 500);
+            // // set speed somewhere
+            // var speed = 100.0;
+            // // calculate the difference between the positions of followMe and the target
+            // var difference = target - followMe.node.position;
+            // // calculate the ratio of movement along X and Y to maintain a constant speed, multiply
+            // // by the speed, and use delta time to keep speed the same if the frame rate changes
+            // var change = difference.getNormalized() * speed * 0.0001;
+
+            // // if the target is further away than followMe will move, just move it. Otherwise, just set the position
+            // // to the target to avoid followMe endlessly moving past the target.
+            // if (difference.length() > change.length()) {
+            //     followMe.setPosition(followMe.numbergetPosition() + change);
+            // } else {
+            //     followMe.numbersetPosition(target);
+            // }
+
+            //this.node.parent = cc.director.getScene();
         } else {
-            this.node.zIndex = 1;
+            this.node.parent = cc.director.getScene();
+            this.node.zIndex = 3;
+            //
             this.player = _player;
             this.playerLocation = _player.playerLocation;
             let _weaponPos = _player.weapon.node.parent.convertToWorldSpaceAR(_player.weapon.node.getPosition());
@@ -72,7 +83,6 @@ cc.Class({
             }
             //
             this.node.position = bpos;
-            this.node.parent = cc.director.getScene();
             this.moveLogic();
             //
             // this.callBack = function () {
@@ -105,7 +115,8 @@ cc.Class({
             bpos = cc.v2(this.node.x - 2000 * Math.sin(degree), this.node.y - 2000 * Math.cos(degree));
         }
         //
-        cc.tween(this.node).to(5, { position: bpos }).start();
+        cc.tween(this.node).to(0.5, { position: bpos }).start();
+        // 
     },
     onCollisionEnter(other, self) {
         //

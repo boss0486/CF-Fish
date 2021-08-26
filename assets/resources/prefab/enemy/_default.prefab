@@ -49,8 +49,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 68.67,
-      "height": 45.83
+      "width": 58.1,
+      "height": 51.29
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -68,8 +68,8 @@
         0,
         0,
         1,
-        0.5,
-        0.5,
+        1,
+        1,
         1
       ]
     },
@@ -233,7 +233,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        10,
+        14.908,
         0,
         0,
         0,
@@ -333,7 +333,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "2f90c0a2-cd2f-4c9d-890c-039189000c69"
+      "__uuid__": "41279483-4780-4342-b625-d2750df8ec39"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -352,8 +352,6 @@
     },
     "_enabled": true,
     "id": "",
-    "hp": 10,
-    "gold": 2,
     "speed": 10,
     "speedBonus": 0,
     "lastPosition": {

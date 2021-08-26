@@ -19,8 +19,6 @@ cc.Class({
     extends: cc.Component,
     properties: {
         id: cc.String = "",
-        hp: cc.Interger = 10,
-        gold: cc.Interger = 2,
         speed: cc.Double = 80,
         speedBonus: cc.Double = 0,
         //
@@ -55,6 +53,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
     init: function(_map, _game) {
+        this.node.parent = cc.find('Canvas');
         this.drawLine = _game.drawLine;
         this.game = _game;
         //
@@ -63,7 +62,6 @@ cc.Class({
         this.speed = _map.speed;
         this.speedBonus = _map.speedbonus;
         this.cntBezier = 0;
-        this.node.parent = cc.find('Canvas');
         var bz1 = this.node.parent.convertToNodeSpaceAR(cc.v2(arr[this.cntBezier].x, arr[this.cntBezier].y));
         this.node.position = bz1;
         //
@@ -75,20 +73,28 @@ cc.Class({
         this.node.zIndex = 2;
         this.spawnFish();
         var _this = this;
-        this.node.on(cc.Node.EventType.TOUCH_START, function() {
+        this.node.on(cc.Node.EventType.TOUCH_START, function(event) {
             if (_glbGameSkill.tagetState && _glbGameSkill.tagetTo == null) {
-                //_this.lblName.string = `右上 >:<`;
+                _this.lblName.string = `右上 >:<`;
                 _glbGameSkill.tagetTo = _this;
                 _this.taget.active = true;
-                _this.game.autoShootOnTaget();
-            } else {
-                _glbGameSkill.tagetState = false;
+                _this.game.autoShootOnTaget(_this.id);
             }
-            //
-        }, this);
+        }, this.node);
+
+        // this.node.on(cc.Node.EventType.TOUCH_START, function() {
+        //     if (_glbGameSkill.tagetState && _glbGameSkill.tagetTo == null) {
+        //         //_this.lblName.string = `右上 >:<`;
+        //         _glbGameSkill.tagetTo = _this;
+        //         _this.taget.active = true;
+        //         _this.game.autoShootOnTaget(_this.node);
+        //     } else {
+        //         _glbGameSkill.tagetState = false;
+        //     }
+        //     //
+        // }, this);
     },
     spawnFish: function() {
-        this.node.parent = cc.find('Canvas');
         this.lastPosition = this.node.getPosition();
         this.changeCollider();
         this.swimming();
@@ -208,5 +214,5 @@ cc.Class({
         }
         // 
         return arrResult;
-    },
+    }
 });
