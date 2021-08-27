@@ -75,24 +75,12 @@ cc.Class({
         var _this = this;
         this.node.on(cc.Node.EventType.TOUCH_START, function(event) {
             if (_glbGameSkill.tagetState && _glbGameSkill.tagetTo == null) {
-                _this.lblName.string = `右上 >:<`;
+                //_this.lblName.string = `右上 >:<`;
                 _glbGameSkill.tagetTo = _this;
                 _this.taget.active = true;
                 _this.game.autoShootOnTaget(_this.id);
             }
         }, this.node);
-
-        // this.node.on(cc.Node.EventType.TOUCH_START, function() {
-        //     if (_glbGameSkill.tagetState && _glbGameSkill.tagetTo == null) {
-        //         //_this.lblName.string = `右上 >:<`;
-        //         _glbGameSkill.tagetTo = _this;
-        //         _this.taget.active = true;
-        //         _this.game.autoShootOnTaget(_this.node);
-        //     } else {
-        //         _glbGameSkill.tagetState = false;
-        //     }
-        //     //
-        // }, this);
     },
     spawnFish: function() {
         this.lastPosition = this.node.getPosition();
@@ -123,9 +111,8 @@ cc.Class({
                     //
                     _this.swimming();
                 }
-
+                //
                 if (_this.cntBezier == this.bezierArray.length) {
-                    //huy skill taget
                     if (_glbGameSkill.tagetTo != null && _this.id == _glbGameSkill.tagetTo.id) {
                         this.taget.active = false;
                         _this.destroySkillTaget();
@@ -133,7 +120,6 @@ cc.Class({
                     CurrentService.SFxConnect.smartFox.gameRemoveEnemy(this.id);
                     this.node.destroy();
                 }
-
             }).start();
         //  
     },
@@ -143,8 +129,6 @@ cc.Class({
         if (this.lastPosition.sub(currentPos).mag() < 1) {
             return;
         }
-
-        // 移动的方向向量
         let dir = currentPos.sub(this.lastPosition);
         // 求角度
         if (dir.x == 0 && dir.y == 0) {
@@ -169,15 +153,6 @@ cc.Class({
         //this.destroySkillTaget();
         //this.node.destroy();
     },
-    // va cham
-    // onCollisionEnter(other, self) {
-
-    // }, 
-    // update(dt) {
-    //     // if (!CurrentService.GameSkill.freezeState)
-    //     //     this.updateDegree();
-    //     // //
-    // },
     destroySkillTaget() {
         _glbGameSkill.tagetState = false;
         _glbGameSkill.tagetTo = null;

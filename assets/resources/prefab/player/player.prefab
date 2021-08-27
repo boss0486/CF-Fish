@@ -2610,7 +2610,7 @@
     "isWaitState": true,
     "bulletList": [
       {
-        "__uuid__": "1b5f3553-4978-4ef8-b157-429da227ff87"
+        "__uuid__": "e5df1e9e-2440-4064-b245-499db85289b3"
       },
       {
         "__uuid__": "3e6ecaed-a1a2-4373-a393-5beccb1eb6d0"
@@ -2627,7 +2627,6 @@
       "__uuid__": "005498eb-fdde-4072-abea-a12c24a63967"
     },
     "oneNet": null,
-    "bulletPool": null,
     "oneBullet": null,
     "coinController": {
       "__id__": 51

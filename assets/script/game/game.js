@@ -272,6 +272,7 @@ cc.Class({
         }
     },
     gameLoadMaps: function(_fishMap) {
+        return;
         if (_fishMap == undefined || _fishMap.length == 0) {
             console.log("Error: cannot load fish maps.");
             return;

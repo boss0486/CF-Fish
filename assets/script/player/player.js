@@ -58,7 +58,6 @@ cc.Class({
     },
 
     init: function(_game, _player) {
-        this.node.parent = cc.director.getScene();
         // 
         this.game = _game;
         this.node.zIndex = 5;
@@ -87,9 +86,9 @@ cc.Class({
         switch (this.playerLocation) {
             case 1:
                 widget.isAlignLeft = true;
-                widget.isAlignBottom = true;
+                // widget.isAlignBottom = true;
                 widget.left = 100;
-                widget.button = 0;
+                // widget.button = 500;
                 break;
             case 2:
                 widget.isAlignRight = true;
@@ -140,7 +139,7 @@ cc.Class({
             default:
                 break;
         };
-
+        this.node.parent = cc.find("Canvas");
         //render weapon
         //frameAwait.active = false;
         this.node.active = true;
@@ -166,6 +165,7 @@ cc.Class({
             //this.node.active = false;
 
         }
+        //this.node.active = false;
         _game.node.on(cc.Node.EventType.TOUCH_START, function(event) {
             if (_this.isActived) {
                 cc.macro.ENABLE_MULTI_TOUCH = false;

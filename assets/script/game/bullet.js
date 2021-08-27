@@ -29,7 +29,7 @@ cc.Class({
 
     },
     onLoad() {
-        this.speed = 500;
+        this.speed = 1;
         this.speedBonus = 1;
     },
 
@@ -39,11 +39,18 @@ cc.Class({
     shot(_player, model) {
         this.player = _player;
         this.playerLocation = _player.playerLocation;
-        //  
+        this.node.angle = 0;
+        var trackNode = cc.find("Canvas/trackNode");
+        trackNode.addChild(this.node, 1, this.id);
+        this.speedBonus = 0.5;
+        this.moveTageLogic();
+        return;
+        //   
         if (_glbGameSkill.tagetTo != null) {
             this.node.angle = 0;
             var trackNode = cc.find("Canvas/trackNode");
             trackNode.addChild(this.node, 1, this.id);
+            this.speedBonus = 0.5;
             this.moveTageLogic();
             //
             // var followMe = this;
@@ -83,6 +90,7 @@ cc.Class({
             }
             //
             this.node.position = bpos;
+            this.speedBonus = 1;
             this.moveLogic();
             //
             // this.callBack = function () {
@@ -97,51 +105,46 @@ cc.Class({
         this.bulletType = model.bulletType;
         this.bulletId = model.bulletId;
         this.id = model.bulletId;
-
-        //this.node.zIndex = 7;
     },
     moveLogic() {
-
         let bpos = cc.v2(this.node.x + 2000 * Math.sin(this.angle / 180 * Math.PI), this.node.y + 2000 * Math.cos(this.angle / 180 * Math.PI));
-        if (this.playerLocation == 3 || this.playerLocation == 4) {
+        if (this.playerLocation == 3 || this.playerLocation == 4)
             bpos = cc.v2(this.node.x - 2000 * Math.sin(this.angle / 180 * Math.PI), this.node.y - 2000 * Math.cos(this.angle / 180 * Math.PI));
-        }
-        cc.tween(this.node).to(3, { position: bpos }).start();
+        //
+        cc.tween(this.node).to(this.speed * this.speedBonus, { position: bpos }).start();
     },
     moveTageLogic() {
         var degree = parseInt(this.angle / 180 * Math.PI);
         let bpos = cc.v2(this.node.x + 2000 * Math.sin(degree), this.node.y + 2000 * Math.cos(degree));
-        if (this.playerLocation == 3 || this.playerLocation == 4) {
+        if (this.playerLocation == 3 || this.playerLocation == 4)
             bpos = cc.v2(this.node.x - 2000 * Math.sin(degree), this.node.y - 2000 * Math.cos(degree));
-        }
         //
-        cc.tween(this.node).to(0.5, { position: bpos }).start();
+        cc.tween(this.node).to(this.speed * this.speedBonus, { position: bpos }).start();
         // 
     },
     onCollisionEnter(other, self) {
-        //
         let otherNode = other.node;
         switch (otherNode.name) {
             case "screenLeft":
                 self.node.angle += -2 * self.node.angle;
                 var bpos = cc.v2(self.node.x + 2000 * Math.sin(-self.node.angle / 180 * Math.PI), self.node.y + 2000 * Math.cos(-self.node.angle / 180 * Math.PI));
-                cc.tween(self.node).to(2, { position: cc.v2(bpos.x, bpos.y) }).start();
+                cc.tween(self.node).to(this.speed * this.speedBonus, { position: cc.v2(bpos.x, bpos.y) }).start();
                 break;
             case "screenTop":
                 self.node.angle += 180 - 2 * self.node.angle;
                 var bpos = cc.v2(self.node.x + 2000 * Math.sin(-self.node.angle / 180 * Math.PI), self.node.y + 2000 * Math.cos(-self.node.angle / 180 * Math.PI));
-                cc.tween(self.node).to(2, { position: cc.v2(bpos.x, bpos.y) }).start();
+                cc.tween(self.node).to(this.speed * this.speedBonus, { position: cc.v2(bpos.x, bpos.y) }).start();
                 break;
             case "screenButton":
                 self.node.angle += 180 - 2 * self.node.angle;
                 var bpos = cc.v2(self.node.x + 2000 * Math.sin(-self.node.angle / 180 * Math.PI), self.node.y + 2000 * Math.cos(-self.node.angle / 180 * Math.PI));
-                cc.tween(self.node).to(2, { position: cc.v2(bpos.x, bpos.y) }).start();
+                cc.tween(self.node).to(this.speed * this.speedBonus, { position: cc.v2(bpos.x, bpos.y) }).start();
                 break;
             case "screenRight":
                 console.log("cham right");
                 self.node.angle += -2 * self.node.angle;
                 var bpos = cc.v2(self.node.x + 2000 * Math.sin(-self.node.angle / 180 * Math.PI), self.node.y + 2000 * Math.cos(-self.node.angle / 180 * Math.PI));
-                cc.tween(self.node).to(2, { position: cc.v2(bpos.x, bpos.y) }).start();
+                cc.tween(self.node).to(this.speed * this.speedBonus, { position: cc.v2(bpos.x, bpos.y) }).start();
                 break;
             default:
                 console.log("Chạm cá");
