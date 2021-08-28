@@ -100,7 +100,7 @@ cc.Class({
         // 
         var _fspeed = distance / _this.speed;
         this.fooTween = cc.tween(_this.node)
-            .to(_fspeed / 3, { position: bz1 })
+            .to(_fspeed / 5, { position: bz1 })
             .call(() => {
                 if (CurrentService.GameSkill.freezeState == false) {
                     _this.cntBezier++;
@@ -112,14 +112,14 @@ cc.Class({
                     _this.swimming();
                 }
                 //
-                if (_this.cntBezier == this.bezierArray.length) {
-                    if (_glbGameSkill.tagetTo != null && _this.id == _glbGameSkill.tagetTo.id) {
-                        this.taget.active = false;
-                        _this.destroySkillTaget();
-                    }
-                    CurrentService.SFxConnect.smartFox.gameRemoveEnemy(this.id);
-                    this.node.destroy();
-                }
+                // if (_this.cntBezier == this.bezierArray.length) {
+                //     if (_glbGameSkill.tagetTo != null && _this.id == _glbGameSkill.tagetTo.id) {
+                //         this.taget.active = false;
+                //         _this.destroySkillTaget();
+                //     }
+                //     CurrentService.SFxConnect.smartFox.gameRemoveEnemy(this.id);
+                //     this.node.destroy();
+                // }
             }).start();
         //  
     },

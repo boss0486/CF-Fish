@@ -86,9 +86,9 @@ cc.Class({
         switch (this.playerLocation) {
             case 1:
                 widget.isAlignLeft = true;
-                // widget.isAlignBottom = true;
+                //widget.isAlignBottom = true;
                 widget.left = 100;
-                // widget.button = 500;
+                widget.button = 100;
                 break;
             case 2:
                 widget.isAlignRight = true;
@@ -211,11 +211,11 @@ cc.Class({
         this.weapon.node.angle = model.angel;
         this.bulletPrefab.name = model.bulletId;
         //  *****************************************************************************************************************************
-        var pos = cc.find("Canvas").convertToNodeSpaceAR(this.weapon.node.parent.convertToWorldSpaceAR(this.weapon.node.getPosition()));
-        var trackNode = cc.find("Canvas/trackNode");
-        trackNode.zIndex = 2;
-        trackNode.angle = model.angel;
-        trackNode.position = pos;
+        // var pos = cc.find("Canvas").convertToNodeSpaceAR(this.weapon.node.parent.convertToWorldSpaceAR(this.weapon.node.getPosition()));
+        // var trackNode = cc.find("Canvas/trackNode");
+        // trackNode.zIndex = 2;
+        // trackNode.angle = model.angel;
+        // trackNode.position = pos;
         //console.log(trackNode);
 
         this.bulletPrefab.getComponent("bullet").setBullet({

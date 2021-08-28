@@ -22,20 +22,20 @@ export default class HelperService {
         //     _canvas.fitWidth = false;
         // }
 
-        var canvas = cc.Canvas.instance.designResolution;
-        var scWidth = cc.view.getCanvasSize().width;
-        var scHeight = cc.view.getCanvasSize().height;
-        //
-        if (canvas != null) {
-            let srcScaleForShowAll = Math.min(scWidth / canvas.width, scHeight / canvas.height);
-            let realWidth = canvas.width * srcScaleForShowAll;
-            let realHeight = canvas.height * srcScaleForShowAll;
-            //cc.renderContext.scale(realWidth, realHeight);
-            // 2. 基于第一步的数据，再做节点宽高适配
-            var width = canvas.width * (scWidth / realWidth);
-            var height = canvas.height * (scHeight / realHeight);
-            cc.view.setDesignResolutionSize(width, height, cc.ResolutionPolicy.FIXED_HEIGHT);
-        }
+        // var canvas = cc.Canvas.instance.designResolution;
+        // var scWidth = cc.view.getCanvasSize().width;
+        // var scHeight = cc.view.getCanvasSize().height;
+        // //
+        // if (canvas != null) {
+        //     let srcScaleForShowAll = Math.min(scWidth / canvas.width, scHeight / canvas.height);
+        //     let realWidth = canvas.width * srcScaleForShowAll;
+        //     let realHeight = canvas.height * srcScaleForShowAll;
+        //     //cc.renderContext.scale(realWidth, realHeight);
+        //     // 2. 基于第一步的数据，再做节点宽高适配
+        //     var width = canvas.width * (scWidth / realWidth);
+        //     var height = canvas.height * (scHeight / realHeight);
+        //     cc.view.setDesignResolutionSize(width, height, cc.ResolutionPolicy.FIXED_HEIGHT);
+        // }
 
 
 
